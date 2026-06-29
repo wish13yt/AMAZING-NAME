@@ -146,7 +146,7 @@ function saveMessage(name, message) {
     const timestamp = Date.now();
     const newMessageRef = push(messagesRef);
     set(newMessageRef, {
-        name: name,
+        name: name + " (AMAZING-NAME)",
         message: message,
         likes: 0,
         timestamp: timestamp
@@ -185,7 +185,6 @@ function loadMessages(page) {
             const messagesToShow = messageArray.reverse().slice(startAtMessage, startAtMessage + messagesPerPage);
             messagesToShow.forEach(msg => {
                 let likeButtonHTML = '';
-                let deathButtonHTML = '';
                 if (msg.likes !== undefined) {
                     likeButtonHTML = `<button id="like-button-${msg.id}" class="like-button">${msg.likes} Likes</button>`;
                 }
@@ -211,9 +210,8 @@ function loadMessages(page) {
 
 function getTimeAgo(timestamp) {
     if (isNaN(timestamp)) return '';
-    const currentTime = Date.now();
-    const diff = currentTime - timestamp;
-    
+    const date = new Date(timestamp*1000);
+    const diff = currentTime - date;
     if (diff < 60000) {
         return "Posted just now";
     } else if (diff < 3600000) {
@@ -350,6 +348,7 @@ margin-left: 5px;
 <body>
     <h1>AMAZING NAME</h1>
     <p>VERSION 9</p>
+    <p><a href="https://wish13yt.github.io/wegogo/">New client!</a> (requires a real server to be hosting it)<br>Don't worry, though, AMAZING-NAME will stick around for times when a server is offline!</p>
     <button onclick="location.href='rules.html';">rules/instructions (PLEASE READ)</button>
     <form id="message-form">
 <div class="FIX-IT">
