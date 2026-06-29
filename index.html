@@ -210,8 +210,9 @@ function loadMessages(page) {
 
 function getTimeAgo(timestamp) {
     if (isNaN(timestamp)) return '';
-    const date = new Date(timestamp*1000);
-    const diff = currentTime - date;
+    const currentTime = Date.now();
+    const diff = currentTime - timestamp;
+    new Date(timestamp).toTimeString()
     if (diff < 60000) {
         return "Posted just now";
     } else if (diff < 3600000) {
