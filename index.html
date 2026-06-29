@@ -146,7 +146,7 @@ function saveMessage(name, message) {
     const timestamp = Date.now();
     const newMessageRef = push(messagesRef);
     set(newMessageRef, {
-        name: name + " (AMAZING NAME)",
+        name: name + "@amazingname",
         message: message,
         likes: 0,
         timestamp: timestamp,
