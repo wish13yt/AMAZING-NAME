@@ -143,10 +143,11 @@ function isCooldownActive() {
 }
 
 function saveMessage(name, message) {
+    name = name.toLowerCase()
     const timestamp = Date.now();
     const newMessageRef = push(messagesRef);
     set(newMessageRef, {
-        name: name + "@amazingname",
+        name: "@" + name + "@amazingname",
         message: message,
         likes: 0,
         timestamp: timestamp,
