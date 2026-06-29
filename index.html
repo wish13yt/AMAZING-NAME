@@ -96,7 +96,9 @@ function submitForm(e) {
 
     let name = document.getElementById('name').value;
     let message = document.getElementById('message').value;
-
+    if (name == "") {
+        name = "Anonymous"
+    }
     name = sanitizeInput(name);
     message = sanitizeInput(message);
 
@@ -270,21 +272,7 @@ function likeMessage(messageId, currentLikes) {
         }).catch((error) => {
             console.error("Error liking message:", error);
         });
-    }
-}
-
-function likeHack(messageId, currentLikes) {
-    while (true) {
-        console.log("prepare your cheeks")
-    const messageRef = ref(database, `messages/${messageId}`);
-        update(messageRef, {
-            likes: currentLikes + 1
-        }).then(() => {
-            localStorage.setItem(`liked-${messageId}`, true);
-            document.getElementById(`like-button-${messageId}`).textContent = `${currentLikes + 1} Likes`;
-        }).catch((error) => {
-            console.error("Error liking message:", error);
-        });
+        reload()
     }
 }
 
@@ -365,7 +353,7 @@ margin-left: 5px;
     <button onclick="location.href='rules.html';">rules/instructions (PLEASE READ)</button>
     <form id="message-form">
 <div class="FIX-IT">
-        <input type="text" id="name" maxlength="15" placeholder="your name dawg" required><br>
+        <input type="text" id="name" maxlength="15" placeholder="name (optional) + see rule 5"><br>
         <button type="button" id="save-name-button">save</button><br>
 </div>
         <textarea id="message" maxlength="212" placeholder="text" required></textarea><br>
