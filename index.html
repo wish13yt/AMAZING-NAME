@@ -149,7 +149,8 @@ function saveMessage(name, message) {
         name: name + " (AMAZING NAME)",
         message: message,
         likes: 0,
-        timestamp: timestamp
+        timestamp: timestamp,
+        service: "AMAZING NAME"
     }).catch((error) => {
         console.error("Error saving message:", error);
     });
