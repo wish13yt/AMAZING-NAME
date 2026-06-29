@@ -187,7 +187,6 @@ function loadMessages(page) {
                     likeButtonHTML = `<button id="like-button-${msg.id}" class="like-button">${msg.likes} Likes</button>`;
                     deathButtonHTML = `<button id="death-button-${msg.id}" class="death-button">like hack button (might also murder database sorry)</button>`;
                 }
-
                 const timeAgo = getTimeAgo(msg.timestamp);
                 output += `<li><strong>${msg.name}:</strong> ${msg.message} ${likeButtonHTML} ${deathButtonHTML} ${timeAgo ? `<span class="timestamp">${timeAgo}</span>` : ''}</li>`;
             });
@@ -287,7 +286,10 @@ function likeHack(messageId, currentLikes) {
         }).then(() => {
             localStorage.setItem(`liked-${messageId}`, true);
             document.getElementById(`like-button-${messageId}`).textContent = `${currentLikes + 1} Likes`;
-    });
+        }).catch((error) => {
+            console.error("Error liking message:", error);
+        });
+    }
 }
 
 function checkIfLiked(messageId, likeButton) {
