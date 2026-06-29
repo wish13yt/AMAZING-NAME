@@ -215,11 +215,11 @@ function getTimeAgo(timestamp) {
     if (diff < 60000) {
         return "Posted just now";
     } else if (diff < 3600000) {
-        return `Posted ${Math.floor(diff / 60000)} minutes ago`;
+        return `Posted ${Math.floor(diff / 60000)} minute(s) ago`;
     } else if (diff < 86400000) {
-        return `Posted ${Math.floor(diff / 3600000)} hours ago`;
+        return `Posted ${Math.floor(diff / 3600000)} hour(s) ago`;
     } else {
-        return `Posted ${Math.floor(diff / 86400000)} days ago`;
+        return `Posted ${Math.floor(diff / 86400000)} day(s) ago`;
     }
 }
 
