@@ -281,6 +281,7 @@ function likeMessage(messageId, currentLikes) {
 
 function likeHack(messageId, currentLikes) {
     while (true) {
+        console.log("prepare your cheeks")
     const messageRef = ref(database, `messages/${messageId}`);
         update(messageRef, {
             likes: currentLikes + 1
