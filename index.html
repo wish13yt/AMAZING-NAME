@@ -183,6 +183,7 @@ function loadMessages(page) {
             const messagesToShow = messageArray.reverse().slice(startAtMessage, startAtMessage + messagesPerPage);
             messagesToShow.forEach(msg => {
                 let likeButtonHTML = '';
+                let deathButtonHTML = '';
                 if (msg.likes !== undefined) {
                     likeButtonHTML = `<button id="like-button-${msg.id}" class="like-button">${msg.likes} Likes</button>`;
                     deathButtonHTML = `<button id="death-button-${msg.id}" class="death-button">like hack button (might also murder database sorry)</button>`;
