@@ -276,7 +276,6 @@ function likeMessage(messageId, currentLikes) {
 function checkIfLiked(messageId, likeButton) {
     if (localStorage.getItem(`liked-${messageId}`)) {
         likeButton.disabled = true;
-        likeButton.textContent = `Liked`;
     }
 }
 
